@@ -1,0 +1,57 @@
+@import "duration.css";
+@import "sound.css";
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+.video {
+    background: url("../img/section/bg_video.png") center center /cover no-repeat;
+    height: 100vh;
+    width: 100%;
+    margin-top: -20px;
+}
+
+.video__title {
+    padding-top: 30px;
+    text-align: center;
+}
+
+.video__container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.video__player {
+    position: relative;
+}
+
+.video__player-img {
+    position: absolute;
+    left: 307px;
+    top: 149px;
+    cursor: pointer;
+}
+.video__player-img--active{
+    opacity:0;
+}
+
+#player {
+    width: 660px;
+    height: 370px;
+}
+
+.video__toolbar {
+    width: 660px;
+    height: 35px;
+    background-color: #3e3e3e;
+    margin-top: -4px;
+    display: flex;
+}
+

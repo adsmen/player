@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Video</title>
+    <link rel="stylesheet" href="./css/normalize.css">
+    <link rel="stylesheet" href="./css/main.css">
+    <script src="./js/jquery.js"></script>
+    <script src="./js/app.js"></script>
+</head>
+<body>
+    <div class="wrapper">
+        <section class="video">
+            <h2 class="video__title">Как мы работаем</h2>
+            <div class="video__container">
+                <div class="video__player">
+                    <video src="./src/jquery.mp4" id="player" poster="./img/player/cover.png" onClick="playStop()">
+
+                    </video>
+                    <img src="./img/player/Play_white.png" alt="" class="video__player-img" onClick="playStop()">
+                </div>
+                <div class="video__toolbar">
+                    <div class="duration">
+                        <img src="./img/player/Play_gray.png" alt="" class="duration__img" onClick="playStop()">
+                        <div class="duration__length">
+                            <img src="./img/player/circle.png" alt="" class="duration__circle">
+                        </div>
+                    </div>
+                    <div class="sound">
+                        <img src="./img/player/Volum_gray.png" class="sound__mic" alt="" onClick="soundOf()">
+                        <div class="sound__volume">
+                            <img src="./img/player/circle.png" class="duration__circle duration__circle--high" alt="" >
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>    
+</body>
+</html>

@@ -1,0 +1,18 @@
+.sound {
+    display: flex;
+    align-items: center;
+    padding-left: 30px;
+}
+
+.sound__mic {
+    cursor: pointer;
+}
+
+.sound__volume {
+    width: 58px;
+    height: 4px;
+    border-radius: 1px;
+    background-color: #626262;
+    margin-left: 30px;
+    position: relative;
+}
