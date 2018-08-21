@@ -9,10 +9,6 @@
 }
 
 .sound__volume {
-    width: 58px;
-    height: 4px;
-    border-radius: 1px;
-    background-color: #626262;
-    margin-left: 30px;
-    position: relative;
+    margin-left: 30px;   
+    margin-top: -5px; 
 }
