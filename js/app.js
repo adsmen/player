@@ -6,7 +6,6 @@ let intervalId;
 $().ready(function(){
     video = document.getElementById("player"); 
     video.addEventListener('click', playStop);
-    video.addEventListener('play', playVideoProcess)
 
     let playButtons = document.querySelectorAll(".play");
     for (let i = 0; i < playButtons.length;i++){
@@ -19,6 +18,7 @@ $().ready(function(){
     durationControl = document.getElementById("durationLevel");    
     durationControl.addEventListener('click',setVideoDuration);
     durationControl.addEventListener('onmousemove',setVideoDuration);
+    durationControl.addEventListener('mousedown', stopInterval);
     durationControl.min = 0;
     durationControl.value = 0;    
 
@@ -29,9 +29,7 @@ $().ready(function(){
     soundControl.value = soundControl.max;
     soundControl.addEventListener('click', changeSoundVolume);
     soundControl.addEventListener('onmousemove', changeSoundVolume);
-
-
-
+    
 });
 
 function playStop(){
@@ -40,9 +38,11 @@ function playStop(){
 
     if (video.paused){
         video.play();
+        intervalId = setInterval(updateDuration,1)
         // video.webkitRequestFullScreen();
     }else{
-        video.pause();        
+        video.pause();  
+        clearInterval(intervalId);
         // document.webkitExitFullscreen();
     }
 }
@@ -50,27 +50,27 @@ function playStop(){
 function soundOf(){    
     if (video.volume ===0){
         video.volume = soundLevel;
+        soundControl.value = soundLevel*10;
     }else{
         soundLevel = video.volume;
         video.volume = 0;
+        soundControl.value = 0;
     }    
 }
 
-function setVideoDuration(){
-    video.currentTime = durationControl.value;  
+function stopInterval(){
     clearInterval(intervalId);
+}
+
+function setVideoDuration(){
+    video.currentTime = durationControl.value;   
+    intervalId = setInterval(updateDuration,1000/66);    
 }
 
 function changeSoundVolume(){
     video.volume = soundControl.value/10;
 }
 
-function playVideoProcess(){
-    console.log("test");
-    intervalId = setInterval(updateDuration,1000/66);
-}
-
-function updateDuration(){
+function updateDuration(){    
     durationControl.value = video.currentTime;
-    // setVideoDuration();
 }
